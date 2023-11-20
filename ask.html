@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dolores Baquiro Suelo</title>
+  <link rel="stylesheet" href="./ask.css">
+  <link rel="icon" href="./logo/flowers.png" />
+  <!-- email -->
+  <!-- <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function(){
+        emailjs.init("qGzN8Kqu4PA-T5OUM");
+    })();
+  </script> -->
+
+  <!-- BOXICON -->
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+  <div class="confirm js-confirm">
+    <div class="confirm__container">
+      <p class="title">Miss mo na ako?<span class="heart"></span></p>
+      <div class="confirm__actions">
+        <button class="btn-yes js-yes">Oo</button>
+        <button class="btn-no js-no">Hindi</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dialog js-dialog">
+    <div class="dialog__container">
+      <a href="./index.html">
+        <p>Sabi mo yan ahh wala ng bawian<span class="heart"></span></p>
+        <!-- <p>Tara nood cine Treat ko<span class="heart"></span></p> -->
+        <p class="click">Click here!</p>
+      </a>
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      Designed & Built by
+      <a href="https://www.facebook.com/trekquelazon?mibextid=ZbWKwL"><i class='bx bxl-facebook-square'></i></a>
+      <a href="https://www.instagram.com/reel/CWX2yadhMps/?igshid=MmJiY2I4NDBkZg=="><i class='bx bxl-instagram' ></i></a>
+      Kerth Quelazon
+    </p>
+  </footer>
+  <script>
+    const $btnYes = document.querySelector('.js-yes');
+      $btnNo = document.querySelector('.js-no');
+      $confirm = document.querySelector('.js-confirm');
+      $dialog = document.querySelector('.js-dialog');
+      $body = document.querySelector('body');
+
+      let counter = 0
+
+      $btnYes.addEventListener('mouseover', (e) =>{
+        e.target.innerHTML = 'Sige na nga 😀'
+      })
+
+      $btnYes.addEventListener('click', () =>{
+        $body.classList.add('yes')
+      })
+
+      $btnNo.addEventListener('mouseover', (e) => {
+        const $target = e.target
+
+        $target.style.top = `${Math.random() * 200}px` 
+        $target.style.right = `${Math.random() * 200}px`
+        
+        if(counter >= 5){
+          $target.innerHTML = 'hmmm'
+        }
+
+        counter += 1
+      });
+  </script>
+</body>
+</html>

@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+:root{
+  --dark: #111827;
+  --col1: #7449f5;
+  --light1: #f7f9fb;
+  --light2: #dddddd;
+  --light: #fff;
+  --dark1: #16161d;
+  --green1: #01fe87;
+}
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Poppins', sans-serif;
+}
+img{
+  width: 100%;
+}
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--dark1);
+  color: #fff;
+  z-index: 1;
+}
+span{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-size: contain;
+  background-image: url(/dist/src/hart.png);
+  animation: animate 1s linear infinite;
+  z-index: 1;
+}
+@keyframes animate{
+  0%{
+    opacity: 0;
+    transform: scale(0);
+  }
+  50%{
+    opacity: .4;
+    transform: scale(1);
+  }
+  100%{
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+}
+/* LOADER========================= */
+.loader{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--light1);
+  transition: opacity 0.75s, visibility 0.75s;
+  z-index: -1;
+}
+.loader-hidden{
+  opacity: 0;
+  visibility: hidden;
+  z-index: -1;
+}
+.loader::after{
+  content: "";
+  width: 75px;
+  height: 75px;
+  border: 15px solid var(--light2);
+  border-top-color: var(--col1);
+  border-radius: 50%;
+  animation: loading 0.75s ease infinite;
+  z-index: -1;
+}
+@keyframes loading {
+  from{
+    transform: rotate(0turn);
+  }
+  to{
+    transform: rotate(1turn);
+  }
+}
+
+
+header{
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
+header h2{
+  display: flex;
+  position: absolute;
+  left: 50%;
+  margin: 2.5rem 0;
+  transform: translate(-50%);
+  font-size: 3rem;
+  letter-spacing: 2px;
+  color: #252839;
+  -webkit-text-stroke: 0.1vw #383d52;
+  text-transform: uppercase;
+  z-index: 1;
+}
+header h2::before{
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  color: var(--green1);
+  -webkit-text-stroke: 0vw #383d52;
+  border-right: 2px solid #01fe87;
+  overflow: hidden;
+  animation: text 6s linear infinite;
+}
+@keyframes text{
+  0%,10%,100%
+  {
+    width: 0;
+  }
+  70%,90%
+  {
+    width: 100%;
+  }
+}
+.container{
+  max-width: 50%;
+  position: absolute;
+  display: flex;
+  text-align: center;
+  justify-items: center;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 10;
+}
+.container img{
+  max-width: 500px;
+  
+}
+/* .container img:nth-child(1){
+  height: 180px;
+} */
+.container .siz{
+  height: 80%;
+}
+.container i{
+}
+.next{
+  position: absolute;
+  top: 50%;
+  color: var(--green1);
+  left: 2%;
+  transform: translateY(-50%);
+  padding: 3px;
+  background-color: #000;
+  z-index: 11;
+}
+.prev{
+  color: var(--green1);
+  position: absolute;
+  top: 50%;
+  right: 3%;
+  transform: translateY(-50%);
+  padding: 3px;
+  background-color: #000;
+  z-index: 11;
+}
+.prev:hover,
+.next:hover{
+  background: var(--green1);
+  color: #000;
+}
+.dots-container{
+  position: absolute;
+  bottom: 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100px;
+  left: 25%;
+  transform: translateX(-50%);
+  z-index: 11;
+  gap: 10px;
+}
+.dots-container .dot{
+  /* width: 15px;
+  height: 15px; */
+  padding: 5px;
+  border-radius: 50%;
+  border: 1px solid var(--green1);
+  z-index: 11;
+  cursor: pointer;
+}
+.dot.active{
+  background-color: var(--green1);
+}
+.fade{
+  animation: fade 0.5s ease-in-out;
+}
+@keyframes fade{
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+
+/* CLICK HERE++++++++++++ */
+.wrapper{
+  position: relative;
+  display: flex;
+  left: 45%;
+  top: 84%;
+  transform: translateY(-50%, -50%);
+  z-index: 11;
+}
+.button {
+  position: relative;
+  padding: 13px 35px;
+  background: #f5ddb7;
+  font-size: 17px;
+  font-weight: 900;
+  color: #181818;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 2px 2px 5px #18181869, inset 2px 2px 10px #ffffffb0;
+  transition: all .3s ease-in-out;
+  animation: float 3s ease-in-out infinite;
+}
+@keyframes float{
+  50%{
+    transform: translateY(40px);
+  }
+}
+
+.icon-1 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0px;
+  height: auto;
+  transition: all .5s ease-in-out;
+  z-index: -1;
+}
+
+.icon-2 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0px;
+  height: auto;
+  transition: all .5s ease-in-out;
+  z-index: -2;
+}
+
+.icon-3 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0px;
+  height: auto;
+  transition: all .5s ease-in-out;
+  z-index: -2;
+}
+
+.icon-4 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0px;
+  height: auto;
+  transition: all .5s ease-in-out;
+  z-index: -2;
+}
+
+.icon-5 {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 0px;
+  height: auto;
+  transition: all .5s ease-in-out;
+  z-index: -2;
+}
+
+.button:hover {
+  padding: 13px 25px;
+  border-radius: 8px 8px 24px 24px;
+}
+
+.button:hover .icon-1 {
+  top: -250%;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 50px;
+  height: auto;
+  animation: inIcon1 1s ease .45s forwards;
+}
+
+@keyframes inIcon1 {
+  0% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+
+  25% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(5deg);
+  }
+
+  50% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(1deg);
+  }
+
+  65% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(3deg);
+  }
+
+  100% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+
+.button:hover .icon-2 {
+  position: absolute;
+  top: -200%;
+  left: 90%;
+  transform: translate(-50%, 0);
+  width: 75px;
+  height: auto;
+  animation: inIcon2 1s ease .45s forwards;
+}
+
+@keyframes inIcon2 {
+  0% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+
+  35% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(10deg);
+  }
+
+  50% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(4deg);
+  }
+
+  80% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(5deg);
+  }
+
+  100% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+
+.button:hover .icon-3 {
+  position: absolute;
+  top: -130%;
+  left: 20%;
+  transform: translate(-50%, 0);
+  width: 60px;
+  height: auto;
+  animation: inIcon3 1s ease .45s forwards;
+}
+
+@keyframes inIcon3 {
+  0% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+
+  35% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(-2deg);
+  }
+
+  100% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+
+.button:hover .icon-4 {
+  position: absolute;
+  top: -300%;
+  left: 10%;
+  transform: translate(-50%, 0);
+  width: 85px;
+  height: auto;
+  animation: inIcon4 1s ease .45s forwards;
+}
+
+@keyframes inIcon4 {
+  0% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+
+  40% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(-3deg);
+  }
+
+  100% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+
+.button:hover .icon-5 {
+  position: absolute;
+  top: -350%;
+  left: 90%;
+  transform: translate(-50%, 0);
+  width: 85px;
+  height: auto;
+  animation: inIcon5 1s ease .45s forwards;
+}
+
+@keyframes inIcon5 {
+  0% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+
+  35% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(-3deg);
+  }
+
+  100% {
+    transform-origin: 0 100%;
+    transform: translate(-50%, 0) rotate(0deg);
+  }
+}
+.fil-leaf-1 {
+  fill: #7B9B3A
+}
+
+.fil-leaf-2 {
+  fill: #556729;
+  fill-rule: nonzero
+}
+
+.fil-leaf-3 {
+  fill: #556729
+}
+
+.fil-leaf-4 {
+  fill: #3C4819
+}
+
+.fil-leaf-5 {
+  fill: #3C4819
+}
+
+/* FOOTER========= */
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background: var(--dark);
+  color: var(--light);
+  text-align: center;
+}
+footer p{
+  z-index: 50;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding-top: 20px;
+  cursor: pointer;
+}
+footer i{
+  font-size: 1.6rem;
+  vertical-align: middle;
+  color: #fff;
+}
+footer i:hover{
+  transform: translateY(-50%);
+}
+
+@media screen and (max-width: 576px){
+  header h2{
+    font-size: 2.3rem;
+  }
+  .container{
+    min-width: 260px;
+  }
+  .dots-container{
+    left: 55px;
+    transform: translate(-50%);
+    display: flex;
+    gap: 5px;
+  }
+  .wrapper{
+    width: 175px;
+    left: 50%;
+    top: 80%;
+    transform: translate(-50%, -50%);
+  }
+  footer{
+    height: 60px;
+  }
+  footer p{
+    font-size: .8rem;
+  }
+}

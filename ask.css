@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  font-family: 'Poppins', sans-serif;
+}
+body{
+  background-color: #fff;
+}
+.yes{
+  background-color: #ff8dc7;
+  background-size: cover;
+}
+.yes .confirm{
+  display: none;
+}
+.yes .dialog{
+  display: block;
+}
+.heart{
+  animation: heartbeat 1s infinite;
+  background-color: red;
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  margin-left: 5px;
+}
+.heart::before,
+.heart::after{
+  content: '';
+  background-color: red;
+  border-radius: 50%;
+  width: 8px;
+  height: 8px;
+  position: absolute;
+}
+.heart::before{
+  top: -5px;
+  left: 0;
+}
+.heart::after{
+  top: 0;
+  left: 5px;
+}
+@keyframes heartbeat{
+  0%{
+    transform: scale(1);
+  }
+  20%{
+    transform: scale(1.25);
+  }
+  40%{
+    transform: scale(1.5);
+  }
+}
+.confirm{
+  min-width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #b0498d;
+  box-shadow: 3px 3px 3px #7e3a68;
+  border-radius: 5px; 
+}
+.confirm__container{
+  padding: 10px;
+}
+.confirm__container .title{
+  color: #fff ;
+  text-align: center;
+  font-size: 22px;
+}
+.confirm__actions{
+  display: flex;
+  column-gap: 10px;
+}
+.confirm__actions button{
+  width: 100%;
+  cursor: pointer;
+  font-size: 1rem;
+  border: none;
+  padding: 5px;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 5px;
+}
+.confirm__actions .btn-yes{
+  background-color: #a3ddcb;
+}
+.confirm__actions .btn-no{
+  position: relative;
+  background-color: #e97777;
+}
+.dialog{
+  display: none;
+  min-width: 350px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f261ac;
+  box-shadow: 3px 3px 3px rgb(160, 69, 116);
+  border-radius: 5px;
+  font-size: 22px;
+}
+.dialog__container{
+  padding: 15px 5px;
+}
+.dialog__container a{
+  text-align: center;
+  color: #fff;
+  z-index: 10;
+}
+.dialog__container a .click{
+  text-decoration: underline;
+}
+.dialog__container a .click:hover{
+  color: blue;
+}
+.dialog__container p{
+  color: #fff;
+  text-align: center;
+}
+
+/* FOOTER========= */
+footer{
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background: #111827;
+  color: #fff;
+  text-align: center;
+}
+footer p{
+  z-index: 50;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding-top: 20px;
+  cursor: pointer;
+}
+footer i{
+  font-size: 1.6rem;
+  vertical-align: middle;
+  color: #fff;
+}
+footer i:hover{
+  transform: translateY(-50%)
+}
+@media screen and (max-width: 576px){
+  footer{
+    height: 60px;
+  }
+  footer p{
+    font-size: .8rem;
+  }
+}
